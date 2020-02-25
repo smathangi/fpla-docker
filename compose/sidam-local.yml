@@ -36,7 +36,6 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://shared-db:5432/openidm?currentSchema=fridam
       - SPRING_DATASOURCE_USERNAME=openidm
       - SPRING_DATASOURCE_PASSWORD=openidm
-      - SPRING_MAIL_HOST=smpt-server
       - SECURITY_OAUTH2_CLIENT_CLIENTSECRET=password
       - SECURITY_OAUTH2_CLIENT_PRE_ESTABLISHED_REDIRECT_URI=http://idam-web-public:9002/login
       - SECURITY_OAUTH2_CLIENT_REGISTERED_REDIRECT_URI=http://idam-web-public:9002/login

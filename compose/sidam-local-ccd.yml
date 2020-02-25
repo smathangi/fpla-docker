@@ -36,6 +36,9 @@ services:
       - JAVA_OPTS=-Xms128m -Xms512m
     networks:
       - ccd-network
+  smtp-server:
+    networks:
+      - ccd-network
 
 networks:
   ccd-network:
