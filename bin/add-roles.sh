@@ -17,3 +17,5 @@ do
 	${dir}/utils/idam-add-role.sh "caseworker-publiclaw-${role}"
   ${dir}/utils/ccd-add-role.sh "caseworker-publiclaw-${role}"
 done
+
+${dir}/utils/ccd-add-role.sh "citizen"
