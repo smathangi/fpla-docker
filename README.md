@@ -11,19 +11,19 @@ Scripts to create FPLA test users and import FPLA CCD definitions are located in
 To add adoption service: 
 
 ```
- IDAM_ADMIN_USER= <enter email> IDAM_ADMIN_PASSWORD= <enter password> ./bin/configurer/add-services.sh
+ IDAM_ADMIN_USER= <enter email> IDAM_ADMIN_PASSWORD= <enter password> ./bin/add-services.sh
 ```
 
 To add roles required to import ccd definition: 
 
 ```
- IDAM_ADMIN_USER= <enter email> IDAM_ADMIN_PASSWORD= <enter password> ./bin/configurer/add-roles.sh
+ IDAM_ADMIN_USER= <enter email> IDAM_ADMIN_PASSWORD= <enter password> ./bin/add-roles.sh
 ```
 
 To add citizen user: 
 
 ```
-./bin/configurer/add-users.sh
+./bin/add-users.sh
 ```
 
 ```IDAM_ADMIN_USER``` and ```IDAM_ADMIN_PASSWORD``` details can be found on confluence.
