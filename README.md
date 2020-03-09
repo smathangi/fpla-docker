@@ -28,6 +28,8 @@ To add citizen user:
 
 ```IDAM_ADMIN_USER``` and ```IDAM_ADMIN_PASSWORD``` details can be found on confluence.
 
+To enable stubbing of the ```PROXY_PAYMENTS``` set the ```PROXY_PAYMENTS_STUB``` environment variable to the desired url. 
+
 ----
 
 # CCD Docker :whale:
