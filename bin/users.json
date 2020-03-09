@@ -1,3 +1,4 @@
 [
-  {"email": "sam_citizen@mailinator.com", "roles": "citizen", "lastName": "Citizen"}
+  {"email": "sam_citizen@mailinator.com", "roles": "citizen", "lastName": "Citizen"},
+  {"email": "adoptionclerk@mailinator.com", "roles": "caseworker,caseworker-adoption,caseworker-adoption-clerk", "lastName": "Clerk"}
 ]
