@@ -70,12 +70,12 @@ Please see `packer_images` directory in the logstash repo and specific adoption 
 
 When adding a CCD definition file elastic search indexes will be created. To verify, you can hit the elastic search
 api directly on `localhost:9200` with the following command. It will return all stored indexes.
-```bash
+```shell script
 curl -X GET http://localhost:9200/adoption_cases
 ```
 
 The following command will return all cases currently indexed.
-```bash
+```shell script
  curl -X GET http://localhost:9200/adoption_cases/_search
 ```
 
@@ -90,19 +90,19 @@ You can search on local envs using this endpoint: `localhost:4452/searchCases?ct
 An example of a JSON search query which would return any cases where the reference is 1234: 
 ```json
 {
-  "query": {
-    "match" : {
-      "reference" : "1234"
+    "query": {
+        "match" : {
+          "reference" : "1234"
+        }
     }
-  }
 }
 ```
 
-Please see [ES docs - start searching]{https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-search.html} for more
+Please see [ES docs - start searching](https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-search.html) for more
 examples of search queries.
 
 Example curl: 
-```bash
+```shell script
 curl --location --request POST 'localhost:4452/searchCases?ctid=ADOPTION' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: <auth-token> \
@@ -147,9 +147,6 @@ Example response:
 }
 
 ```
-
-
-
 ----
 
 This project should aim to keep upto date with the [base CCD Docker project](https://github.com/hmcts/ccd-docker)
