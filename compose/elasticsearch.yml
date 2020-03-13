@@ -23,7 +23,7 @@ services:
       - ccd-network
 
   ccd-logstash:
-    image: "hmcts/ccd-logstash:latest"
+    image: "hmcts/ccd-logstash:fpla"
     container_name: ccd-logstash
     depends_on:
           - "ccd-elasticsearch"
