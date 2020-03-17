@@ -23,6 +23,31 @@ Login to the Azure Container registry:
 Note:
 if you experience any error with the above command, try `az login` first
 
+Make sure 'sidam', 'sidam-local', 'sidam-local-ccd' docker compose files are enabled. How you do that depends on your currently active compose files. When no active compose files are present, the default ones are executed. But if there's any active, then the defautl ones are ignored. For example:
+
+```shell script
+./ccd enable show
+
+Currently active compose files:
+backend
+frontend
+sidam
+sidam-local
+sidam-local-ccd
+elasticsearch
+```
+If you do not have this output you can disable active compose files using: 
+
+```shell script
+./ccd disable backend frontend sidam sidam-local sidam-local-ccd elasticsearch
+```
+
+or enable the correct compose files using:
+
+```shell script
+./ccd enable backend frontend sidam sidam-local sidam-local-ccd elasticsearch
+```
+
 Pulling latest Docker images:
 
 ```bash
