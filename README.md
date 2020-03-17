@@ -31,15 +31,19 @@ Make sure 'sidam', 'sidam-local', 'sidam-local-ccd' docker compose files are ena
 Currently active compose files:
 backend
 frontend
+
+Default compose files:
+backend
+frontend
 sidam
 sidam-local
 sidam-local-ccd
 elasticsearch
 ```
-If you do not have this output you can disable active compose files using: 
+If you do not have the desired output you can disable active compose files using the following command where each compose file you want deactivated is defined: 
 
 ```shell script
-./ccd disable backend frontend sidam sidam-local sidam-local-ccd elasticsearch
+./ccd disable backend frontend ...
 ```
 
 or enable the correct compose files using:
