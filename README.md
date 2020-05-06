@@ -64,9 +64,9 @@ Creating and starting the containers:
 ./ccd compose up -d
 ```
 
-Scripts to create FPLA test users and import FPLA CCD definitions are located in bin directory.
+Scripts to create FPLA test users are located in bin directory.
 
-To add adoption service: 
+To add services: 
 
 ```
  IDAM_ADMIN_USER=<enter email> IDAM_ADMIN_PASSWORD=<enter password> ./bin/add-services.sh

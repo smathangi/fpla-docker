@@ -8,6 +8,8 @@ LABEL=${1}
 CLIENT_ID=${2}
 CLIENT_SECRET=${3}
 REDIRECT_URL=${4}
+SELF_REGISTRATION=${5:-"false"}
+SCOPE=${6:-"openid profile authorities acr roles search-user"}
 
 apiToken=$(${dir}/idam-authenticate.sh "${IDAM_ADMIN_USER}" "${IDAM_ADMIN_PASSWORD}")
 
@@ -22,8 +24,8 @@ STATUS=$(curl --silent --output /dev/null --write-out '%{http_code}' -X POST -H 
     "oauth2ClientId": "'${CLIENT_ID}'",
     "oauth2ClientSecret": "'${CLIENT_SECRET}'",
     "oauth2RedirectUris": ["'${REDIRECT_URL}'"],
-    "oauth2Scope": "openid profile authorities acr roles search-user",
-    "selfRegistrationAllowed": "true"
+    "oauth2Scope": "'"${SCOPE}"'",
+    "selfRegistrationAllowed": "'${SELF_REGISTRATION}'"
 }')
 
 if [ $STATUS -eq 201 ]; then
