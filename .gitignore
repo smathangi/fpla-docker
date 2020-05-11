@@ -5,7 +5,7 @@
 
 # IntelliJ IDEA files
 .idea/
-.vscode/
 *.iml
+/.project
 
 build/
