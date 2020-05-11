@@ -1,0 +1,1 @@
+stubFor(get("/fine").willReturn(ok()));
