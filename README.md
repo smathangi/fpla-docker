@@ -1,4 +1,4 @@
-# FPLA customised version of CCD Docker :whale: 
+# FPLA customised version of CCD Docker :whale:
 
 - [Prerequisites](#prerequisites)
 - [Quick start](#quick-start)
@@ -11,7 +11,7 @@
 
 *Memory and CPU allocations may need to be increased for successful execution of ccd applications altogether*
 
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) - minimum version 2.0.57 
+- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) - minimum version 2.0.57
 - [jq Json Processor](https://stedolan.github.io/jq)
 
 ## Quick start
@@ -22,35 +22,6 @@ Login to the Azure Container registry:
 ```
 Note:
 if you experience any error with the above command, try `az login` first
-
-Make sure 'sidam', 'sidam-local', 'sidam-local-ccd' docker compose files are enabled. How you do that depends on your currently active compose files. When no active compose files are present, the default ones are executed. But if there's any active, then the defautl ones are ignored. For example:
-
-```shell script
-./ccd enable show
-
-Currently active compose files:
-backend
-frontend
-
-Default compose files:
-backend
-frontend
-sidam
-sidam-local
-sidam-local-ccd
-elasticsearch
-```
-If you do not have the desired output you can disable active compose files using the following command where each compose file you want deactivated is defined: 
-
-```shell script
-./ccd disable backend frontend ...
-```
-
-or enable the correct compose files using:
-
-```shell script
-./ccd enable backend frontend sidam sidam-local sidam-local-ccd elasticsearch
-```
 
 Pulling latest Docker images:
 
@@ -66,19 +37,19 @@ Creating and starting the containers:
 
 Scripts to create FPLA test users and import FPLA CCD definitions are located in bin directory.
 
-To add services: 
+To add services:
 
 ```
  IDAM_ADMIN_USER=<enter email> IDAM_ADMIN_PASSWORD=<enter password> ./bin/add-services.sh
 ```
 
-To add roles required to import ccd definition: 
+To add roles required to import ccd definition:
 
 ```
  IDAM_ADMIN_USER=<enter email> IDAM_ADMIN_PASSWORD=<enter password> ./bin/add-roles.sh
 ```
 
-To add users: 
+To add users:
 
 ```
 ./bin/add-users.sh
@@ -86,14 +57,20 @@ To add users:
 
 `IDAM_ADMIN_USER` and `IDAM_ADMIN_PASSWORD` details can be found on confluence.
 
-To enable stubbing of the ```PROXY_PAYMENTS``` set the ```PROXY_PAYMENTS_STUB``` environment variable to the desired url. 
+To enable stubbing of the ```PROXY_PAYMENTS``` set the ```PROXY_PAYMENTS_STUB``` environment variable to the desired url.
 
 ## Elastic search
 
 ### Information
 `compose/elasticsearch.yml` has been updated with specific fpla logstash image: `hmcts/ccd-logstash:fpla`. This image
-was generated using [ccd-logastash](https://github.com/hmcts/ccd-logstash) repository and will only work where 
-`Jurisdiction = ADOPTION`. 
+was generated using [ccd-logastash](https://github.com/hmcts/ccd-logstash) repository and will only work where
+`Jurisdiction = ADOPTION`.
+
+To enable ElasticSearch compose run following:
+
+```
+./ccd backend frontend dm-store sidam sidam-local sidam-local-ccd xui fpl elasticsearch
+```
 
 Please see `packer_images` directory in the logstash repo and specific adoption files for further info.
 
@@ -116,7 +93,7 @@ Note: if you start elastic search after having existing cases, these cases will 
 
 You can search on local envs using this endpoint: `localhost:4452/searchCases?ctid=ADOPTION`
 
-An example of a JSON search query which would return any cases where the reference is 1234: 
+An example of a JSON search query which would return any cases where the reference is 1234:
 ```json
 {
     "query": {
@@ -130,7 +107,7 @@ An example of a JSON search query which would return any cases where the referen
 Please see [ES docs - start searching](https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-search.html) for more
 examples of search queries.
 
-Example curl: 
+Example curl:
 ```shell script
 curl --location --request POST 'localhost:4452/searchCases?ctid=ADOPTION' \
 --header 'Content-Type: application/json' \
@@ -145,7 +122,7 @@ curl --location --request POST 'localhost:4452/searchCases?ctid=ADOPTION' \
 }'
 ```
 
-Example response: 
+Example response:
 ```json
 {
     "total": 1,
