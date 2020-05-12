@@ -9,3 +9,7 @@
 /.project
 
 build/
+
+
+mocks/wiremock/__files/mockResponse.json
+mocks/wiremock/mappings/user-by-email/*
