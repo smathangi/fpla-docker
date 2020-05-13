@@ -1,7 +1,7 @@
 {
   "request": {
     "method": "GET",
-    "urlPattern": "/payments/cases/(\\d*)/paymentgroups"
+    "urlPattern": "/cases/(\\d*)/paymentgroups"
   },
   "response": {
     "status": 200,
