@@ -129,6 +129,7 @@ services:
     networks:
       - ccd-network
 
+
   ccd-shared-database:
     build: ../database
     healthcheck:
