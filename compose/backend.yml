@@ -85,14 +85,14 @@ services:
       ELASTIC_SEARCH_HOSTS: ccd-elasticsearch:9200
       ELASTIC_SEARCH_DATA_NODES_HOSTS: "http://ccd-elasticsearch:9200"
       CCD_DEFAULTPRINTURL: https://return-case-doc-ccd.nonprod.platform.hmcts.net/jurisdictions/:jid/case-types/:ctid/cases/:cid
-      CCD_DRAFT_STORE_URL: http://draft-store-serice:8800
+      CCD_DRAFT_STORE_URL: http://draft-store-api:8800
+      JAVA_TOOL_OPTIONS: '-XX:InitialRAMPercentage=30.0 -XX:MaxRAMPercentage=65.0 -XX:MinRAMPercentage=30.0 -XX:+UseConcMarkSweepGC -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005'
 
       # Uncomment this line to enable JVM debugging and uncomment the port mapping below
-      # JAVA_TOOL_OPTIONS: '-XX:InitialRAMPercentage=30.0 -XX:MaxRAMPercentage=65.0 -XX:MinRAMPercentage=30.0 -XX:+UseConcMarkSweepGC -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005'
     ports:
       - 4452:4452
       # Uncomment this and the JAVA_TOOL_OPTIONS flag for JVM debugging
-      # - 5005:5005
+      - 5005:5005
     depends_on:
 # Uncomment this line to enable ccd test stub service
 #     ccd-test-stubs-service:
